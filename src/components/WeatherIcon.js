@@ -51,7 +51,7 @@ const weatherIcons = {
   },
 };
 
-const weatherToType = weatherCode => {
+const weatherCodeToType = weatherCode => {
   // 這裡是直接透過解構取值，只拿 weatherType，不拿 weatherCode
   const [weatherType] = Object.entries(weatherTypes)
     .find(([, weatherCodes]) => weatherCodes.includes(Number(weatherCode))) || [];
@@ -65,7 +65,7 @@ const IconContainer = styled.div`
   }
 `;
 const WeatherIcon = ({ weatherCode, moment }) => {
-  const weatherType = useMemo(() => weatherToType(weatherCode),[weatherCode])
+  const weatherType = useMemo(() => weatherCodeToType(weatherCode),[weatherCode])
   const weatherIcon = weatherIcons[moment][weatherType];
   return (
     <IconContainer>
