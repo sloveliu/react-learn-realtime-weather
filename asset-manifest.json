@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/learn-realtime-weather/static/css/main.1f91d495.css",
-    "main.js": "/learn-realtime-weather/static/js/main.60fead97.js",
+    "main.js": "/learn-realtime-weather/static/js/main.e218466b.js",
     "static/js/787.cfd742fd.chunk.js": "/learn-realtime-weather/static/js/787.cfd742fd.chunk.js",
     "service-worker.js": "/learn-realtime-weather/service-worker.js",
     "static/media/day-snowing.svg": "/learn-realtime-weather/static/media/day-snowing.ba1cbc7669611ee425e874e171d02e70.svg",
@@ -25,11 +25,11 @@
     "static/media/night-clear.svg": "/learn-realtime-weather/static/media/night-clear.94eb7d671bc6d4dec6aa0b47038954df.svg",
     "index.html": "/learn-realtime-weather/index.html",
     "main.1f91d495.css.map": "/learn-realtime-weather/static/css/main.1f91d495.css.map",
-    "main.60fead97.js.map": "/learn-realtime-weather/static/js/main.60fead97.js.map",
+    "main.e218466b.js.map": "/learn-realtime-weather/static/js/main.e218466b.js.map",
     "787.cfd742fd.chunk.js.map": "/learn-realtime-weather/static/js/787.cfd742fd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1f91d495.css",
-    "static/js/main.60fead97.js"
+    "static/js/main.e218466b.js"
   ]
 }
