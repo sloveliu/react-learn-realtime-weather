@@ -20,6 +20,8 @@ REACT_APP_API_AUTHORIZATION_KEY=xxx
 npm start
 ```
 
+### 使用的 hook
+
 - useState：定義狀態、改變狀態，觸發渲染。觸發渲染條件  set 有被呼叫 且 state 實際有改變。範例：當 state 不存在值，會去 localStorage 取得，不存在則給予預設值【臺中市】
 
 ```js
@@ -156,6 +158,8 @@ const App = () => {
 };
 
 ```
+
+### 其他
 
 - ThemeProvider：提供主題樣式
 - Styled：CSS in JS
