@@ -1,7 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
+const gasUrl = "https://script.google.com/macros/s/AKfycbyxxNjLiyxRxPqZRqCkf5i-KorOfOAv-AKlN3RicEvBA7xXmq0ATe_CAeDPR-zIOLiC_g/exec";
 
-const fetchCurrentWeather = ({ authorizationKey, locationName }) => {
-  return fetch(`https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0003-001?Authorization=${authorizationKey}&locationName=${locationName}`)
+const fetchCurrentWeather = (locationName) => {
+  const url = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/O-A0003-001?locationName=${locationName}`;
+  return fetch(`${gasUrl}?url=${url}`)
     .then(response => response.json())
     .then(data => {
       const locationData = data.records.location[0];
@@ -20,8 +22,9 @@ const fetchCurrentWeather = ({ authorizationKey, locationName }) => {
     });
 };
 
-const fetchWeatherForecast = ({ authorizationKey, cityName }) => {
-  return fetch(`https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${authorizationKey}&locationName=${cityName}`)
+const fetchWeatherForecast = ({ cityName }) => {
+  const url = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?&locationName=${cityName}`;
+  return fetch(`${gasUrl}?url=${url}`)
     .then(response => response.json())
     .then(data => {
       const locationData = data.records.location[0];
@@ -40,7 +43,7 @@ const fetchWeatherForecast = ({ authorizationKey, cityName }) => {
     });
 };
 
-const useWeatherAPI = ({ locationName, cityName, authorizationKey }) => {
+const useWeatherAPI = ({ locationName, cityName }) => {
   const [weatherElement, setWeatherElement] = useState({
     locationName: '',
     description: '',
@@ -59,14 +62,14 @@ const useWeatherAPI = ({ locationName, cityName, authorizationKey }) => {
       isLoading: true
     }));
     // fetchCurrentWeather(), fetchWeatherForecast() 不依賴 useState 後，就可以放在 App 元件外
-    const [currentWeather, weatherForecast] = await Promise.all([fetchCurrentWeather({ authorizationKey, locationName }), fetchWeatherForecast({ authorizationKey, cityName })]);
+    const [currentWeather, weatherForecast] = await Promise.all([fetchCurrentWeather(locationName), fetchWeatherForecast(cityName)]);
     setWeatherElement({
       ...currentWeather,
       ...weatherForecast,
       isLoading: false,
     });
     // 這三個變數有變化時就重新執行
-  }, [authorizationKey, cityName, locationName]);
+  }, [cityName, locationName]);
 
   useEffect(() => { fetchData(); }, [fetchData]);
 

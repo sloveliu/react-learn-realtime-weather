@@ -8,8 +8,6 @@ import WeatherCard from './views/WeatherCard';
 import WeatherSetting from './views/WeatherSetting';
 import useWeatherAPI from './hooks/useWeatherAPI';
 
-const AUTHORIZATION_KEY = process.env.REACT_APP_API_AUTHORIZATION_KEY;
-
 const theme = {
   light: {
     backgroundColor: '#ededed',
@@ -46,7 +44,7 @@ const App = () => {
   const currentLocation = useMemo(() => findLocation(currentCity), [currentCity]);
   const { cityName, locationName, sunriseCityName } = currentLocation;
   const moment = useMemo(() => getMoment(sunriseCityName), [sunriseCityName]);
-  const [weatherElement, fetchData] = useWeatherAPI({ locationName, cityName, authorizationKey: AUTHORIZATION_KEY });
+  const [weatherElement, fetchData] = useWeatherAPI({ locationName, cityName });
   const handleCurrentPageChange = (currentPage) => setCurrentPage(currentPage);
   const handleCurrentCityChange = (currentCity) => setCurrentCity(currentCity);
   useEffect(() => {

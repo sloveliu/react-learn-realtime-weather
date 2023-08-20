@@ -6,7 +6,7 @@
 
 ### 先申請 API Key 填入 .env
 
-<https://opendata.cwb.gov.tw/userLogin>
+<https://opendata.cwa.gov.tw/userLogin>
 
 .env
 
